@@ -1,0 +1,69 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.StaffMapper">
+
+    <select id="findAll" resultType="Staff">
+       select AdId,AUserName,APassword,AStatus,ALevel,registration
+        from Admin
+        where ALevel = 0 ORDER BY adid DESC
+    </select>
+
+    <select id="findCount" resultType="Staff">
+        select count(*) Count from Admin where ALevel = 0;
+    </select>
+
+    <select id="findUpdate" resultType="Staff" parameterType="Integer">
+        select AdId,AUserName,APassword,AStatus,ALevel,registration
+        from Admin
+        where AdId = #{AdId} ORDER BY adid DESC
+    </select>
+
+    <delete id="delete" parameterType="Integer">
+        delete from Admin where AdId = #{AdId}
+    </delete>
+
+    <update id="updateStatusForbidden" parameterType="Integer">
+        update Admin
+        set AStatus = 0
+        where AdId = #{AdId}
+    </update>
+
+    <update id="updateStatusStart" parameterType="Integer">
+        update Admin
+        set AStatus = 1
+        where AdId = #{AdId}
+    </update>
+
+    <insert id="add" parameterType="Staff">
+      insert into Admin
+      (AUserName, APassword,ALevel)
+      value(#{AUserName},#{APassword},0)
+    </insert>
+
+    <select id="findNameAll" parameterType="String" resultType="Staff">
+        SELECT adid, ausername, apassword, astatus, ALevel,registration
+        FROM admin
+        WHERE AUserName LIKE  concat('%',#{AUserName},'%') and ALevel = 0 ORDER BY adid DESC
+    </select>
+
+    <select id="findDateAll" parameterType="String" resultType="Staff">
+        SELECT adid, ausername, apassword, astatus, ALevel,registration
+        FROM admin
+        WHERE registration between #{registration1} AND #{registration2} and ALevel = 0 ORDER BY adid DESC
+    </select>
+
+    <select id="findDateNameAll" parameterType="String" resultType="Staff">
+        SELECT adid, ausername, apassword, astatus, ALevel,registration
+        FROM admin
+        WHERE registration between #{registration1} AND #{registration2} and AUserName LIKE  concat('%',#{AUserName},'%') and ALevel = 0 ORDER BY adid DESC
+    </select>
+
+    <update id="deleteS" parameterType="Integer">
+        update Admin
+        set deleteStatus = 0
+        where AdId = #{AdId}
+    </update>
+
+</mapper>

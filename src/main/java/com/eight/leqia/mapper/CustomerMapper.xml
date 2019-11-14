@@ -1,0 +1,57 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.CustomerMapper">
+
+    <select id="findAll" resultType="Customer">
+        select cid, cmobile, username, csex, birthday, icardid, cpassword, viplevel, balance, headportrait, cstatus, registration,openid,age
+        from Customer ORDER BY cid DESC
+    </select>
+
+    <select id="findCount" resultType="Customer">
+        select count(*) Count from Customer;
+    </select>
+
+    <update id="updateStatusForbidden" parameterType="Integer">
+        update Customer
+        set CStatus = 0
+        where CId = #{CId}
+    </update>
+
+    <update id="updateStatusStart" parameterType="Integer">
+        update Customer
+        set CStatus = 1
+        where CId = #{CId}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        delete from Customer
+        where CId = #{CId}
+    </delete>
+
+    <select id="findNameAll" parameterType="String" resultType="Customer">
+        select cid, cmobile, username, csex, birthday, icardid, cpassword, viplevel, balance, headportrait, cstatus, registration,openid,age
+        from Customer
+        WHERE UserName LIKE  concat('%',#{UserName},'%') ORDER BY cid DESC
+    </select>
+
+    <select id="findDateAll" parameterType="String" resultType="Customer">
+        select cid, cmobile, username, csex, birthday, icardid, cpassword, viplevel, balance, headportrait, cstatus, registration,openid,age
+        from Customer
+        WHERE registration between #{registration1} AND #{registration2} ORDER BY cid DESC
+    </select>
+
+    <select id="findDateNameAll" parameterType="String" resultType="Customer">
+        select cid, cmobile, username, csex, birthday, icardid, cpassword, viplevel, balance, headportrait, cstatus, registration,openid,age
+        from Customer
+        WHERE registration between #{registration1} AND #{registration2} and UserName LIKE  concat('%',#{UserName},'%') ORDER BY cid DESC
+    </select>
+
+    <update id="deleteS" parameterType="Integer">
+        update Customer
+        set deleteStatus = 0
+        where CId = #{CId}
+    </update>
+
+</mapper>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>首页</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" th:href="@{/css/font.css}">
+        <link rel="stylesheet" th:href="@{/css/xadmin.css}">
+        <script th:src="@{/lib/layui/layui.js}" charset="utf-8"></script>
+        <script type="text/javascript" th:src="@{/js/xadmin.js}"></script>
+        <script th:src="@{/echarts.min.js}"></script>
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <script>
+        setInterval("cg.innerHTML=new Date().toLocaleString()",1000);
+    </script>
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <blockquote class="layui-elem-quote" >欢迎管理员：
+                                <b class="x-red" th:text="${session.AUserName}"></b>！当前时间:<span id="cg"></span>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><b>店铺统计</b></div>
+                    <div class="layui-card-body ">
+                        <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog">
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>菜品数</h3>
+                                    <p>
+                                        <cite th:text="${foodcount}"></cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>分类数</h3>
+                                    <p>
+                                        <cite th:text="${foodTypecount}"></cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>口味数</h3>
+                                    <p>
+                                        <cite th:text="${fdTastecount}"></cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>用户数</h3>
+                                    <p>
+                                        <cite th:text="${customercount}"></cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>员工数</h3>
+                                    <p>
+                                        <cite th:text="${staff}"></cite></p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md2 layui-col-xs6 ">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>订单数</h3>
+                                    <p>
+                                        <cite th:text="${foodOrdercount}"></cite></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header"><b>最新订单</b></div>
+                        <div class="layui-card-body ">
+                            <table class="layui-table layui-form">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>订单编号</th>
+                                    <th>用户名</th>
+                                    <th>菜品名称</th>
+                                    <th>菜品价格</th>
+                                    <th>订单备注</th>
+                                    <th>订单时间</th>
+                                    <th>支付时间</th>
+                                    <th>订单状态</th>
+                                    <th>订单总价</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="c:${foodOrders}" onclick="orderclick()">
+                                    <td th:text="${c.foodorderid}">id</td>
+                                    <td th:text="${c.OrderId}">订单编号</td>
+                                    <td th:text="${c.UserName}">用户名</td>
+                                    <td th:text="${c.FName}">菜品名称</td>
+                                    <td th:text="${c.FPrice}">菜品价格</td>
+                                    <td th:text="${c.Ordercomment}">订单备注</td>
+                                    <td th:text="${#dates.format(c.OrderTime,'yyyy-MM-dd hh:mm:ss')}">订单时间</td>
+                                    <td th:text="${#dates.format(c.PaymentTime,'yyyy-MM-dd hh:mm:ss')}">支付时间</td>
+                                    <td th:if="${c.OrderStatus == 0}">未支付</td>
+                                    <td th:if="${c.OrderStatus == 1}">已支付</td>
+                                    <td th:if="${c.OrderStatus == 2}">已完成</td>
+                                    <td th:if="${c.OrderStatus == 3}">已取消</td>
+                                    <td th:text="${'￥'+c.OrderPrice}">订单总价</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md12" style="margin-top: -4px;">
+                    <div class="layui-card">
+                        <div class="layui-card-header"><b>最新菜品</b></div>
+                        <div class="layui-card-body ">
+                            <table class="layui-table layui-form">
+                                <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>图片</th>
+                                    <th>价格</th>
+                                    <th>描述</th>
+                                    <!--<th>评分</th>-->
+                                    <th>类别</th>
+                                    <th>口味</th>
+                                    <th>主料</th>
+                                    <th>状态</th>
+                                    <th>库存</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="f:${foods}" onclick="foodclick()">
+                                    <td th:text="${f.FName}">菜品名称</td>
+                                    <td><img th:src="@{|/upload/${f.FUrl}|}" th:width="80px" th:height="60px"></td>
+                                    <td th:text="'￥'+${f.FPrice}">菜品价格</td>
+                                    <td th:text="${f.FDesc}">菜品描述</td>
+                                    <!--<td th:text="${f.FEvaluation}">菜品评分</td>-->
+                                    <td th:text="${f.FtName}">所属类别</td>
+                                    <td th:text="${f.FdtName}">菜品口味</td>
+                                    <td th:text="${f.FoodMain}">主料</td>
+                                    <td class="td-status" >
+
+                                        <span th:class="${f.FStatu==0?'layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled':'layui-btn layui-btn-normal layui-btn-mini'}" th:text="${f.FStatu==0?'下架':'上架'}">下架/上架</span>
+                                    </td>
+                                    <td class="td-status" >
+
+                                        <span th:class="${f.FInventory==0?'layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled':'layui-btn layui-btn-normal layui-btn-mini'}" th:text="${f.FInventory==0?'售罄':'充足'}">售罄/充足</span>
+                                    </td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="layui-col-md12">
+
+                    <div style=" width: 60%; height:352px; float:left;">
+
+                    </div>
+                    <div style="width: 40%; height:352px; float:left;">
+                    </div>
+                </div>-->
+                <style id="welcome_style"></style>
+                <div class="layui-col-md12">
+                    <blockquote class="layui-elem-quote layui-quote-nm" style="padding-left: 370px; color: gray;">
+                        Copyright @ 2004 - 2019 乐恰版权所有 | 消费者维权热线：4006067733 经营证照 | 后期维护请联系：17839410980！
+                    </blockquote></div>
+            </div>
+        </div>
+        </div>
+    </body>
+<script>
+    function orderclick() {
+        location.href="/foodOrder/findallOrder";
+    }
+
+    function foodclick() {
+        location.href="/food/findall";
+    }
+</script>
+</html>

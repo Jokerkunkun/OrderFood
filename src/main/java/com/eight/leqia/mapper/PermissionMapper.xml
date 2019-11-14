@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.PermissionMapper">
+
+    <select id="findAll" resultType="Permission">
+       select pId, pName, pUrl, pStatu from permission
+    </select>
+
+    <select id="findAll_1" resultType="Permission">
+       select pId, pName, pUrl, pStatu from permission where pStatu =1
+    </select>
+
+    <update id="updateUp" parameterType="Integer">
+         update permission
+         set pStatu= 1
+         where pId = #{pId}
+    </update>
+
+    <update id="updateDn" parameterType="Integer">
+         update permission
+         set pStatu= 0
+         where pId = #{pId}
+    </update>
+
+</mapper>

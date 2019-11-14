@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.IngredientMapper">
+
+    <select id="findAllig" resultType="Ingredient">
+      select ig.Ingid,ig.ingurl,ig.ingName,ig.ingprice,ft.fdtname,ig.ingdesc from ingredient ig inner join fdtaste ft on ig.Fdtid=ft.fdtid ORDER BY Ingid DESC
+    </select>
+
+    <select id="findNameAll" parameterType="String" resultType="Ingredient">
+        select ig.Ingid,ig.ingurl,ig.ingName,ig.ingprice,ft.fdtname,ig.ingdesc from ingredient ig inner join fdtaste ft on ig.Fdtid=ft.fdtid
+        WHERE ig.ingName LIKE  concat('%',#{IngName},'%') ORDER BY Ingid DESC
+    </select>
+
+    <select id="findbyid" resultType="Ingredient" parameterType="Integer">
+        select * from Ingredient where Ingid = #{Ingid}
+    </select>
+    <delete id="delete" parameterType="Integer">
+       delete from Ingredient where Ingid = #{Ingid}
+    </delete>
+    <update id="update" parameterType="Ingredient">
+        update Ingredient set IngName=#{IngName},Ingprice=#{Ingprice},IngDesc=#{IngDesc},FdtId=#{FdtId} where Ingid = #{Ingid}
+    </update>
+    <!--<update id="updateimg" parameterType="Ingredient">
+        update Ingredient set Ingurl=#{Ingurl},IngName=#{IngName},FdtId=#{FdtId},IngDesc=#{IngDesc} where Ingid = #{Ingid}
+    </update>-->
+    <insert id="add" parameterType="Ingredient">
+        insert into Ingredient(Ingurl,IngName,Ingprice,FdtId,IngDesc)values(#{Ingurl},#{IngName},#{Ingprice},#{FdtId},#{IngDesc})
+    </insert>
+
+</mapper>

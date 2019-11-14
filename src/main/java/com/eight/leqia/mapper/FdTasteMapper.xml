@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.FdTasteMapper">
+
+    <select id="findAll" resultType="FdTaste">
+       select FdtId,FdtName from FdTaste where deleteStatus = 1 ORDER BY FdtId DESC
+    </select>
+
+    <select id="findCount" resultType="FdTaste">
+       select count(*) Count from FdTaste;
+    </select>
+
+    <select id="findNameAll" parameterType="String" resultType="FdTaste">
+        select FdtId,FdtName from FdTaste
+        WHERE FdtName LIKE  concat('%',#{FdtName},'%') and deleteStatus = 1 ORDER BY FdtId DESC
+    </select>
+
+    <insert id="addFdTaste" parameterType="FdTaste">
+        insert into FdTaste(FdtName) values(#{FdtName})
+    </insert>
+
+    <delete id="deleteFdTaste" parameterType="Integer">
+        delete from FdTaste where FdtId = #{FdtId}
+    </delete>
+
+    <update id="updateFdTaste" parameterType="FdTaste">
+     update FdTaste set FdtName=#{FdtName} where FdtId = #{FdtId}
+    </update>
+
+    <select id="findbyid" resultType="FdTaste" parameterType="Integer">
+      select * from FdTaste where FdtId = #{FdtId} and deleteStatus = 1 ORDER BY FdtId DESC
+    </select>
+
+    <update id="deleteS" parameterType="Integer">
+        update FdTaste
+        set deleteStatus = 0
+        where FdtId = #{FdtId}
+    </update>
+
+</mapper>

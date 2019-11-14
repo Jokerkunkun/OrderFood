@@ -1,0 +1,81 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.FoodMapper">
+
+    <select id="findall" resultType="Food">
+      select fd.fid, fd.fname, fd.furl, fd.fprice, fd.fdesc, fd.fdtid, fd.foodmain, fd.foodcooking, fd.fstatu, fd.finventory, fd.ftid,ft.FtName,fdt.FdtName
+      from food fd
+      INNER JOIN foodtype ft
+      on fd.ftid=ft.FtId
+      inner join FdTaste fdt
+      on fd.FdtId = fdt.FdtId ORDER BY fd.fid DESC
+
+    </select>
+
+    <select id="findFoodNew" resultType="Food">
+      select fd.fid, fd.fname, fd.furl, fd.fprice, fd.fdesc, fd.fdtid, fd.foodmain, fd.foodcooking, fd.fstatu, fd.finventory, fd.ftid,ft.FtName,fdt.FdtName
+      from food fd
+      INNER JOIN foodtype ft
+      on fd.ftid=ft.FtId
+      inner join FdTaste fdt
+      on fd.FdtId = fdt.FdtId order by fd.fid DESC limit 1
+
+    </select>
+
+    <select id="findFtId" parameterType="Integer" resultType="Food">
+        select FtId from food where FtId = #{FtId}
+    </select>
+
+
+    <select id="findCount" resultType="Food">
+        select count(*) Count from food;
+    </select>
+
+    <select id="findNameAll" parameterType="String" resultType="Food">
+        select fd.fid, fd.fname, fd.furl, fd.fprice, fd.fdesc, fd.fdtid, fd.foodmain, fd.foodcooking, fd.fstatu, fd.finventory, fd.ftid,ft.FtName,fdt.FdtName
+        from food fd
+        INNER JOIN foodtype ft
+        on fd.ftid=ft.FtId
+        inner join FdTaste fdt
+        on fd.FdtId = fdt.FdtId
+        WHERE fd.FName LIKE  concat('%',#{FName},'%') ORDER BY fd.fid DESC
+    </select>
+
+    <select id="findbyid" resultType="Food" parameterType="Integer">
+        select * from food where fid = #{fid}
+    </select>
+    <delete id="delete" parameterType="Integer">
+        delete from food where fid = #{fid}
+    </delete>
+    <update id="update" parameterType="Food">
+         update food
+         set fname= #{FName},
+         fprice=#{FPrice},
+         FDesc = #{FDesc},
+         ftId=#{ftId},
+         fdtId = #{FdtId},
+         FoodMain = #{FoodMain}
+         where fid = #{FId}
+    </update>
+
+    <update id="updateStatusForbidden" parameterType="Integer">
+        update Food
+        set FStatu = 0
+        where FId = #{FId}
+    </update>
+
+    <update id="updateStatusStart" parameterType="Integer">
+        update Food
+        set FStatu = 1
+        where FId = #{FId}
+    </update>
+
+    <insert id="add" parameterType="Food">
+      insert into food
+      (fname, furl, fprice, fdesc, fdtid, foodmain, ftid)
+      value(#{FName},#{FUrl},#{FPrice},#{FDesc},#{FdtId},#{FoodMain},#{FtId})
+
+    </insert>
+</mapper>

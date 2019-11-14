@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.PotMapper">
+
+    <select id="findAll" resultType="Pot">
+       select PId,PUrl,PName from pot
+    </select>
+
+    <select id="findNameAll" parameterType="String" resultType="Pot">
+        select PId,PUrl,PName from pot
+        WHERE PName LIKE  concat('%',#{PName},'%')
+    </select>
+
+    <select id="updateFind" resultType="Pot" parameterType="Integer">
+        select PId,PUrl,PName from pot where PId = #{PId}
+    </select>
+
+    <delete id="delete" parameterType="Integer">
+        delete from pot where PId = #{PId}
+    </delete>
+
+    <update id="update" parameterType="Pot">
+         update pot
+         set PName= #{PName}
+         where PId = #{PId}
+    </update>
+
+    <insert id="add" parameterType="Pot">
+      insert into pot
+      (PUrl,PName)
+      value(#{PUrl},#{PName})
+    </insert>
+
+</mapper>

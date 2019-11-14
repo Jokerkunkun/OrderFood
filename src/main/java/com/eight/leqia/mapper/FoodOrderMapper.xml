@@ -1,0 +1,91 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.FoodOrderMapper">
+
+    <select id="findAllOrder" resultType="FoodOrder">
+       select foodorderid,OrderId,seat,goodsNum,fo.CId,c.UserName,OrderPrice,OrderTime,PaymentTime,Ordercomment,OrderStatus,group_concat(concat(fo.FId)) FIds,group_concat(concat(f.fName)) fNames
+        from foodorder fo
+        join food f
+        on fo.FId = f.FId
+        join customer c
+        on c.CId = fo.CId
+        group by OrderId order by foodorderid desc
+    </select>
+
+    <select id="findCId" parameterType="Integer" resultType="FoodOrder">
+        select CId from foodorder
+        where CId = #{CId}
+    </select>
+
+    <select id="findAllOrderNew" resultType="FoodOrder">
+       select fd.foodorderid,fd.orderid,cu.userName,f.fname,f.fprice,fd.ordercomment,fd.orderTime,fd.PaymentTime,fd.orderstatus,fd.orderprice
+       from foodorder fd inner join Customer cu on fd.Cid=cu.cid inner join food f on fd.fid=f.fid order by fd.foodorderid DESC limit 1
+    </select>
+
+    <select id="findOrderIdAll" parameterType="String" resultType="FoodOrder">
+        select fd.foodorderid,fd.orderid,cu.userName,f.fname,f.fprice,fd.ordercomment,fd.orderTime,fd.PaymentTime,fd.orderstatus,fd.orderprice
+       from foodorder fd inner join Customer cu on fd.Cid=cu.cid inner join food f on fd.fid=f.fid
+        WHERE fd.orderid LIKE  concat('%',#{OrderId},'%')  ORDER BY fd.foodorderid DESC
+    </select>
+
+    <select id="findCount" resultType="FoodOrder">
+        select count(*) Count from foodorder;
+    </select>
+
+    <select id="find1M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='1';
+    </select>
+    <select id="find2M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='2';
+    </select>
+    <select id="find3M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='3';
+    </select>
+    <select id="find4M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='4';
+    </select>
+    <select id="find5M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='5';
+    </select>
+    <select id="find6M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='6';
+    </select>
+    <select id="find7M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='7';
+    </select>
+    <select id="find8M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='8';
+    </select>
+    <select id="find9M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='9';
+    </select>
+    <select id="find10M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='10';
+    </select>
+    <select id="find11M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='11';
+    </select>
+    <select id="find12M" resultType="FoodOrder">
+        select sum(OrderPrice) price from foodorder
+        where month(OrderTime)='12';
+    </select>
+
+<!--    <select id="findOrder" parameterType="Integer" resultType="FoodOrder">
+       select fd.foodorderid,fd.orderid,cu.userName,cu.HeadPortrait,f.fname,f.FUrl,f.fprice,fd.ordercomment,fd.orderTime,fd.PaymentTime,fd.orderstatus,fd.orderprice
+       from foodorder fd inner join Customer cu on fd.Cid=cu.cid inner join food f on fd.fid=f.fid
+    </select>-->
+
+</mapper>

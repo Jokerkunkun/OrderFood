@@ -1,0 +1,53 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.FoodTypeMapper">
+
+    <select id="findall" resultType="FoodType">
+       select FtId,FtName from foodtype ORDER BY FtId DESC
+    </select>
+
+    <select id="findFtId">
+        select FtId from foodtype where FtId = #{FtId}
+    </select>
+
+    <select id="findCount" resultType="FoodType">
+        select count(*) Count from FoodType;
+    </select>
+
+    <select id="findSole" parameterType="String" resultType="FoodType">
+       select FtName from FoodType where FtName = #{FtName} ORDER BY FtId DESC
+    </select>
+
+    <select id="findNameAll" parameterType="String" resultType="FoodType">
+        select FtId,FtName from FoodType
+        WHERE FtName LIKE  concat('%',#{FtName},'%') ORDER BY FtId DESC
+    </select>
+
+    <select id="updateFind" resultType="FoodType" parameterType="Integer">
+        select FtId,FtName from FoodType where FtId = #{FtId}  ORDER BY FtId DESC
+    </select>
+
+    <delete id="delete" parameterType="Integer">
+        delete from FoodType where FtId = #{FtId}
+    </delete>
+
+    <update id="update" parameterType="FoodType">
+         update FoodType
+         set FtName= #{FtName}
+         where FtId = #{FtId}
+    </update>
+
+    <insert id="add" parameterType="FoodType">
+      insert into FoodType
+      (FtName)
+      value(#{FtName})
+    </insert>
+
+    <update id="deleteS" parameterType="Integer">
+        update FoodType
+        set deleteStatus = 0
+        where FtId = #{FtId}
+    </update>
+</mapper>

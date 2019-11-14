@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.FoodMapperT">
+    <select id="findAll" resultType="FoodTypeVo">
+    SELECT * from food where FStatu=1
+</select>
+    <select id="selAllByFl" resultType="Foods">
+    select * from food where FtId=#{FtId}
+</select>
+    <select id="selFoodsById" resultType="FoodTypeVo"  parameterType="String">
+    select * from food f join foodtype ft on f.FtId=ft.FtId join fdtaste fdt  on f.FdtId=fdt.FdtId where f.FStatu=1 and f.FId=#{goodsId}
+</select>
+
+
+
+</mapper>

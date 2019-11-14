@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.OrderMapperT">
+    <insert id="addOrder" parameterType="FoodOrder">
+     insert into foodorder(OrderId,CId,OrderPrice,FId,seat,goodsNum)values(#{OrderId},#{CId},#{OrderPrice},#{FId},#{seat},#{goodsNum})
+</insert>
+    <select id="selOrder" resultType="FoodOrder" parameterType="int">
+       select OrderId,CId,OrderTime,OrderStatus,group_concat(concat(FId)) FIds
+from foodorder group by OrderId   HAVING CId=#{CId} and OrderStatus=#{OrderStatus}
+ order by OrderTime desc
+</select>
+
+    <select id="selAllOrder" resultType="FoodOrder" parameterType="int">
+       select OrderId,CId,OrderTime,OrderStatus,group_concat(concat(FId)) FIds
+from foodorder group by OrderId   HAVING CId=#{CId}
+ order by OrderTime desc
+</select>
+
+    <select id="selOrderById" parameterType="String" resultType="FoodOrder">
+        select seat,OrderPrice,OrderStatus from foodorder where OrderId=#{OrderId}
+    </select>
+    <select id="setGoodsNum" resultType="FoodOrder">
+        select goodsNum from foodorder where OrderId=#{OrderId} and FId=#{FId}
+    </select>
+
+    <delete id="delOrderById" parameterType="String">
+        delete from foodorder where OrderId=#{OrderId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.RechargeMapper">
+
+    <select id="findAll" resultType="Recharge">
+       select r.rId,r.cId,r.sum,r.registration,c.UserName
+        from recharge r
+        join customer c on r.cId = c.CId
+    </select>
+
+</mapper>

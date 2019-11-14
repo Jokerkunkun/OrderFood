@@ -1,0 +1,76 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.AdminMapper">
+
+    <select id="login" parameterType="String" resultType="Admin">
+        select adid, ausername, apassword, astatus, ALevel,registration
+        from Admin
+        where AUserName = #{AUserName} and APassword = #{APassword} and AStatus = 1 ORDER BY adid DESC
+    </select>
+
+    <select id="findCount" resultType="Admin">
+        select count(*) Count from Admin;
+    </select>
+
+    <select id="findAll" resultType="Admin">
+        select AdId,AUserName,APassword,AStatus,ALevel,registration
+        from Admin
+        where ALevel = 1 and AStatus = 1 ORDER BY adid DESC
+    </select>
+
+    <select id="findNameAll" parameterType="String" resultType="Admin">
+        SELECT adid, ausername, apassword, astatus, ALevel,registration
+        FROM admin
+        WHERE AUserName LIKE  concat('%',#{AUserName},'%') and ALevel = 1 and AStatus = 1 ORDER BY adid DESC
+    </select>
+
+    <select id="findDateAll" parameterType="String" resultType="Admin">
+        SELECT adid, ausername, apassword, astatus, ALevel,registration
+        FROM admin
+        WHERE registration between #{registration1} AND #{registration2} and ALevel = 1 and AStatus = 1 ORDER BY adid DESC
+    </select>
+
+    <select id="findDateNameAll" parameterType="String" resultType="Admin">
+        SELECT adid, ausername, apassword, astatus, ALevel,registration
+        FROM admin
+        WHERE registration between #{registration1} AND #{registration2} and AUserName LIKE  concat('%',#{AUserName},'%') and ALevel = 1 and AStatus = 1 ORDER BY adid DESC
+    </select>
+
+    <select id="updatePasswordFind" parameterType="Integer" resultType="Admin">
+        select AdId,AUserName,APassword,AStatus,ALevel,registration
+        from Admin
+        where AdId = #{AdId} and AStatus = 1 ORDER BY adid DESC
+    </select>
+
+    <update id="updatePassword" parameterType="Admin">
+        update Admin
+        set APassword = #{NewPassword}
+        where AUserName = #{AUserName} and APassword = #{APassword} ORDER BY adid DESC
+    </update>
+
+    <update id="updateStatusForbidden" parameterType="Integer">
+        update Admin
+        set AStatus = 0
+        where AdId = #{AdId}
+    </update>
+
+    <update id="updateStatusStart" parameterType="Integer">
+        update Admin
+        set AStatus = 1
+        where AdId = #{AdId}
+    </update>
+
+    <insert id="add" parameterType="Admin">
+        insert into Admin
+        (AUserName, APassword,ALevel)
+        VALUES (#{AUserName},#{APassword},1)
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        delete from Admin
+        where AdId = #{AdId}
+    </delete>
+
+</mapper>
