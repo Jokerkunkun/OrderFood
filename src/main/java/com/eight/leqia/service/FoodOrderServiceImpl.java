@@ -36,6 +36,11 @@ public class FoodOrderServiceImpl implements FoodOrderService {
         return foodOrderMapper.findCId(CId);
     }
 
+    @Override
+    public List<FoodOrder> findOrderId(String OrderId) {
+        return foodOrderMapper.findOrderId(OrderId);
+    }
+
 
     @Override
     public FoodOrder find1M() {

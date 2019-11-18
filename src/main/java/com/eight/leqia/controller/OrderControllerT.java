@@ -1,20 +1,18 @@
 package com.eight.leqia.controller;
 
+
 import com.eight.leqia.entity.FoodOrder;
 import com.eight.leqia.entity.FoodTypeVo;
 import com.eight.leqia.entity.Foods;
 import com.eight.leqia.entity.OrderGoods;
 import com.eight.leqia.service.FoodServiceT;
 import com.eight.leqia.service.OrderServiceT;
-
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -132,7 +130,35 @@ public class OrderControllerT {
         return 1;
     }
 
+    @RequestMapping("selFirstOrder")
+    @ResponseBody
+    public FoodOrder  selFirstOrder(int CId){
+        return orderService.selFirstOrder(CId);
+    }
 
+    @RequestMapping("upOrderStatus")
+    @ResponseBody
+    public int  upOrderStatus(FoodOrder foodOrder){
+        return orderService.upOrderStatus(foodOrder);
+    }
+
+    @RequestMapping("selOrderT")
+    @ResponseBody
+    public List<FoodOrder> selOrderT(FoodOrder foodOrder){
+        return orderService.selOrderT(foodOrder);
+    }
+
+    @RequestMapping("upOrderStatusT")
+    @ResponseBody
+    public int  upOrderStatusT(FoodOrder foodOrder){
+        return orderService.upOrderStatusT(foodOrder);
+    }
+
+    @RequestMapping("upOrderT")
+    @ResponseBody
+    public int  upOrderT(FoodOrder foodOrder){
+        return orderService.upOrderT(foodOrder);
+    }
 
 
 

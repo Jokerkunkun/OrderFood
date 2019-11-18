@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.RechargeMapperT">
+  <insert id="addRecharge" parameterType="Recharge">
+ insert into recharge(cId,sum)values(#{cId},#{sum})
+  </insert>
+    <select id="selAllRecharge" resultType="Recharge">
+       select * from recharge where cId=#{cId} order by registration desc
+    </select>
+
+    <select id="findAllRecharge" resultType="Recharge">
+       select r.rid,c.UserName,r.sum,r.registration from recharge r join Customer C on r.cId = C.CId order by registration desc
+    </select>
+
+    <select id="findAllRechargeID" parameterType="String" resultType="Recharge">
+        SELECT r.rid,c.UserName,r.sum,r.registration
+        from recharge r join Customer C on r.cId = C.CId
+        WHERE c.UserName LIKE  concat('%',#{UserName},'%') ORDER BY r.rid DESC
+    </select>
+
+</mapper>

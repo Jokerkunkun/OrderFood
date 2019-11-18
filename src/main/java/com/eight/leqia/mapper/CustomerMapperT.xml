@@ -4,12 +4,18 @@
 
 <mapper namespace="com.eight.leqia.mapper.CustomerMapperT">
     <insert id="add" parameterType="String">
-        insert into Customer(UserName,HeadPortrait)values(#{UserName},#{HeadPortrait})
+        insert into Customer(UserName,HeadPortrait,openid)values(#{UserName},#{HeadPortrait},#{openid})
     </insert>
     <select id="selCustom" resultType="Customer" parameterType="String">
-        select * from Customer where UserName=#{UserName} and HeadPortrait=#{HeadPortrait}
+        select * from Customer where openid=#{openid}
     </select>
-
-
-
+    <select id="selCusById" resultType="Customer" parameterType="int">
+        SELECT * FROM customer WHERE CId=#{CId}
+    </select>
+    <update id="updateById" parameterType="Customer">
+        update customer set CSex=#{CSex},age=#{age},icardId=#{icardId},CMobile=#{CMobile} where CId=#{CId}
+    </update>
+    <update id="upbalance" parameterType="Customer">
+        update customer set  balance=#{balance} where  CId=#{CId}
+    </update>
 </mapper>

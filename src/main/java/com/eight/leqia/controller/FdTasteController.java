@@ -22,7 +22,7 @@ public class FdTasteController {
         if(currentPage==null){
             currentPage  = 1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<FdTaste> fdTastes = iFdTasteService.findAll();
         PageInfo pageInfo = new PageInfo(fdTastes);
         model.addAttribute("pageInfo",pageInfo);
@@ -47,7 +47,7 @@ public class FdTasteController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<FdTaste> fdTastes = iFdTasteService.findNameAll(FdtName);
         PageInfo pageInfo = new  PageInfo(fdTastes);
         model.addAttribute("pageInfo",pageInfo);

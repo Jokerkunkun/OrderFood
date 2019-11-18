@@ -128,7 +128,7 @@ public class FoodController {
     public String addfood(@PathVariable("img") MultipartFile img, Food food) {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
         String filename=sdf.format(new Date())+img.getOriginalFilename();
-        Path path= Paths.get("E:\\S3Down\\S3Project\\miniprogram-7\\miniprogram-7\\images\\goods\\",filename);
+        Path path= Paths.get("E:\\S3Down\\S3Project\\miniprogram-7\\images\\goods\\",filename);
         try {
             Files.write(path,img.getBytes());
         } catch (IOException e) {

@@ -177,4 +177,29 @@ public class FoodOrder {
     public void setCount(Integer count) {
         Count = count;
     }
+
+    @Override
+    public String toString() {
+        return "FoodOrder{" +
+                "seat='" + seat + '\'' +
+                ", foodorderid=" + foodorderid +
+                ", OrderId='" + OrderId + '\'' +
+                ", CId=" + CId +
+                ", UserName='" + UserName + '\'' +
+                ", OrderPrice=" + OrderPrice +
+                ", OrderTime=" + OrderTime +
+                ", PaymentTime=" + PaymentTime +
+                ", Ordercomment='" + Ordercomment + '\'' +
+                ", OrderStatus=" + OrderStatus +
+                ", FId=" + FId +
+                ", FName='" + FName + '\'' +
+                ", FPrice=" + FPrice +
+                ", a='" + a + '\'' +
+                ", FIds='" + FIds + '\'' +
+                ", fNames='" + fNames + '\'' +
+                ", goodsNum=" + goodsNum +
+                ", Count=" + Count +
+                ", price=" + price +
+                '}';
+    }
 }

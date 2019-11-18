@@ -1,5 +1,6 @@
 package com.eight.leqia.service;
 
+
 import com.eight.leqia.entity.FoodType;
 import com.eight.leqia.mapper.FoodTypeMapperT;
 import org.springframework.stereotype.Service;

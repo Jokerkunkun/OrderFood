@@ -3,11 +3,13 @@ package com.eight.leqia.entity;
 import java.util.Date;
 
 public class Recharge {
-    private Integer rId;
-    private Integer cId;
-    private Double sum;
-    private Date registration;
+    private int rId;
+    private int cId;
     private String UserName;
+    private double sum;
+    private Date registration;
+    private String czsj;
+
 
     public String getUserName() {
         return UserName;
@@ -17,27 +19,35 @@ public class Recharge {
         UserName = userName;
     }
 
-    public Integer getrId() {
+    public String getCzsj() {
+        return czsj;
+    }
+
+    public void setCzsj(String czsj) {
+        this.czsj = czsj;
+    }
+
+    public int getrId() {
         return rId;
     }
 
-    public void setrId(Integer rId) {
+    public void setrId(int rId) {
         this.rId = rId;
     }
 
-    public Integer getcId() {
+    public int getcId() {
         return cId;
     }
 
-    public void setcId(Integer cId) {
+    public void setcId(int cId) {
         this.cId = cId;
     }
 
-    public Double getSum() {
+    public double getSum() {
         return sum;
     }
 
-    public void setSum(Double sum) {
+    public void setSum(double sum) {
         this.sum = sum;
     }
 

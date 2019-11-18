@@ -31,6 +31,13 @@ public interface FoodOrderMapper {
      */
     List<FoodOrder> findOrderIdAll(String OrderId);
 
+    /**
+     * 查询订单详情
+     * @param OrderId
+     * @return
+     */
+    List<FoodOrder> findOrderId(String OrderId);
+
 
     List<FoodOrder> findCId(Integer CId);
 

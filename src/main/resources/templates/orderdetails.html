@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <link rel="dns-prefetch" href="//p0.meituan.net"  />
+    <link rel="dns-prefetch" href="//p1.meituan.net"  />
+    <link rel="dns-prefetch" href="//ms0.meituan.net" />
+    <link rel="dns-prefetch" href="//s0.meituan.net" />
+    <link rel="dns-prefetch" href="//ms1.meituan.net" />
+    <link rel="dns-prefetch" href="//analytics.meituan.com" />
+    <link rel="dns-prefetch" href="//report.meituan.com" />
+    <link rel="dns-prefetch" href="//frep.meituan.com" />
+
+
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="cleartype" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script>"use strict";!function(){var i=0<arguments.length&&void 0!==arguments[0]?arguments[0]:"_Owl_",n=window;n[i]||(n[i]={isRunning:!1,isReady:!1,preTasks:[],dataSet:[],use:function(i,t){this.isReady&&n.Owl&&n.Owl[i](t),this.preTasks.push({api:i,data:[t]})},add:function(i){this.dataSet.push(i)},run:function(){var t=this;if(!this.isRunning){this.isRunning=!0;var i=n.onerror;n.onerror=function(){this.isReady||this.add({type:"jsError",data:arguments}),i&&i.apply(n,arguments)}.bind(this),(n.addEventListener||n.attachEvent)("error",function(i){t.isReady||t.add({type:"resError",data:[i]})},!0)}}},n[i].run())}();</script>
+    <script>
+        cid = "c_ua9d08pz";
+        ci = 103;
+        window.system = {"user":{"id":247292227,"token":"7HaVJainT3lUmXnonbk4XIPePfAAAAAAawkAAFmv3jpDS3hyXLv0s3NzQGLr2GlSqlnIj9VGX3-SJQzmX20wRM0v2bG4f2v1BiY_Ug","username":"xKU260691946","profile":{"age":"21","authInfo":"","avatarType":0,"avatarurl":"https://img.meituan.net/maoyanuser/80cdf9a184d40eb9ecc0e5d170f3e45d11928.png","birthday":902505600000,"certificateIcon":"","certificateName":"","certificateRedirectUrl":"","city":null,"currentExp":0,"gender":1,"id":247292227,"interest":"","juryLevel":0,"maoyanAge":"4","marriage":"","nextTitle":"","nickName":"xKU260691946","nickNameStatus":0,"occupation":"","registerTime":1439726096000,"roleInfo":"","roleType":0,"signature":"","signatureStatus":0,"ticketCount":8,"title":"青铜会员","tmpNickName":"","tmpSignature":"","topicCount":0,"totalExp":130,"uid":1093984608,"userLevel":1,"userNextLevel":2,"username":"xKU260691946","vipInfo":"","vipType":0,"visitorCount":0}},"uid":247292227,"cinema":{"allowRefund":0,"machine":{"placement":"影院内自助取票区域或影院前台","usePattern":"凭订单内的取票凭证取票","takeTips":"","img":"http://p1.meituan.net/movie/11f80c28abe85127dc55f9644e4eba752254.png","type":2,"status":1},"lat":"34.749252","lng":"113.665634","poiId":92913761,"shopId":66193729,"telephone":"0371-55273338","takePlace":"影院内自助取票机或影院前台","migrate":{"aheadMin":0,"allow":false},"address":"德化街36号无限城6层","name":"横店电影城（德化无限城店）","id":15661}};
+
+        window.openPlatform = '';
+        window.openPlatformSub = '';
+        window.$mtsiFlag = '0';
+
+    </script>
+    <link rel="stylesheet" href="//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:5788b470/common.0a548310.css"/>
+    <link rel="stylesheet" href="//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:5788b470/order-detail.3a8a0a18.css"/>
+    <script crossorigin="anonymous" src="//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:5788b470/stat.88d57c80.js"></script>
+    <script>if(window.devicePixelRatio >= 2) { document.write('<link rel="stylesheet" href="//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:5788b470/image-2x.8ba7074d.css"/>') }</script>
+    <style>
+        @font-face {
+            font-family: stonefont;
+            src: url('//vfile.meituan.net/colorstone/5a40eaef1e7ad0efdda45378ec99eb8c3424.eot');
+            src: url('//vfile.meituan.net/colorstone/5a40eaef1e7ad0efdda45378ec99eb8c3424.eot?#iefix') format('embedded-opentype'),
+            url('//vfile.meituan.net/colorstone/ca88ac06c514a08eb790efbc82fc21112256.woff') format('woff');
+        }
+
+        .stonefont {
+            font-family: stonefont;
+        }
+    </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?703e94591e87be68cc8da0da7cbd0be2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body style="margin: 20px">
+<div class="order-container" data-page-type="detail" data-order-id="1257921289" data-unique-status="10" th:each="ods:${foodOrders}">
+    <div class="order-note">
+        <span class="order-id" th:text="${'订单编号：'+ods.OrderId}">订单编号</span>
+        <span class="contact">（有订单问题可拨打乐恰客服电话<i>17839410980</i>，工作时间: 9:00-24:00）</span>
+    </div>
+
+    <table class="order-table">
+        <thead>
+        <tr>
+            <th>商品名称</th>
+            <th>订单时间</th>
+            <th>订单状态</th>
+            <th>座位</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="movie-name" th:text="${ods.fNames}" th:title="${ods.fNames}"  style="max-width: 100px;overflow: hidden; text-overflow:ellipsis;white-space: nowrap">商品名称</td>
+            <td class="cinema-name" th:text="${#dates.format(ods.OrderTime,'yyyy-MM-dd hh:mm:ss')}">订单时间</td>
+            <td class="showtime" th:if="${ods.OrderStatus == 0}">未支付</td>
+            <td class="showtime" th:if="${ods.OrderStatus == 1}">已支付</td>
+            <td class="showtime" th:if="${ods.OrderStatus == 2}">已完成</td>
+            <td class="cinema-name" th:text="${ods.seat+'餐桌'}">餐桌</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <div class="order-bottom">
+        <div class="clearfix">
+            <div class="cinema-info">
+                <p class="name">乐恰火锅（小店技校店）</p>
+                <p class="address">地址: 红旗区小店镇新乡职业技术学院</p>
+                <p class="phone">电话: 17839410980</p>
+            </div>
+
+            <div class="price-box">
+                <span>总价:</span>
+                <span class="price" th:text="${ods.OrderPrice}">总价</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

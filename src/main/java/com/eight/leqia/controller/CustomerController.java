@@ -34,7 +34,7 @@ public class CustomerController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Customer> customers = iCustomerService.findAll();
         PageInfo pageInfo = new  PageInfo(customers);
 
@@ -96,7 +96,7 @@ public class CustomerController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         if(UserName != "" && registration1 == "" && registration2 == ""){
             List<Customer> customers = iCustomerService.findNameAll(UserName);
             PageInfo pageInfo = new  PageInfo(customers);

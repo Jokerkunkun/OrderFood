@@ -32,6 +32,13 @@ public interface FoodOrderService {
 
     List<FoodOrder> findCId(Integer CId);
 
+    /**
+     * 查询订单详情
+     * @param OrderId
+     * @return
+     */
+    List<FoodOrder> findOrderId(String OrderId);
+
     FoodOrder find1M();
     FoodOrder find2M();
     FoodOrder find3M();

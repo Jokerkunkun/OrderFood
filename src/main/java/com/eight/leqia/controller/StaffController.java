@@ -23,7 +23,7 @@ public class StaffController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Staff> staffs = iStaffService.findAll();
         PageInfo pageInfo = new  PageInfo(staffs);
 
@@ -97,7 +97,7 @@ public class StaffController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         if(AUserName != "" && registration1 == "" && registration2 == ""){
             List<Staff> admins = iStaffService.findNameAll(AUserName);
             PageInfo pageInfo = new  PageInfo(admins);

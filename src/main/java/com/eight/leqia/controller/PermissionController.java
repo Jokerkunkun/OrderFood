@@ -35,7 +35,7 @@ public class PermissionController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Permission> permissions = iPermissionService.findAll();
         PageInfo pageInfo = new  PageInfo(permissions);
 
@@ -48,7 +48,7 @@ public class PermissionController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Customer> customers = iCustomerService.findAll();
         PageInfo pageInfo = new  PageInfo(customers);
 
@@ -61,7 +61,7 @@ public class PermissionController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Food> foods = foodService.findall();
         PageInfo pageInfo = new  PageInfo(foods);
 
@@ -86,7 +86,7 @@ public class PermissionController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Admin> admins = iAdminService.findAll();
         PageInfo pageInfo = new  PageInfo(admins);
 
@@ -99,7 +99,7 @@ public class PermissionController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Staff> staffs = iStaffService.findAll();
         PageInfo pageInfo = new  PageInfo(staffs);
 

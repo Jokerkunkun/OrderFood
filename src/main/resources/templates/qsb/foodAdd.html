@@ -42,8 +42,11 @@
                 <label class="layui-form-label">
                     <span class="x-red">*</span>描述</label>
                 <div class="layui-input-inline">
-                    <input type="text" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5，。]/g,'')" th:name="FDesc" required="" lay-verify="pass" autocomplete="off" class="layui-input"></div>
-            </div>
+                    <textarea cols="28" rows="4" placeholder="请输入描述..." onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5，。（）！]/g,'')" th:name="FDesc" required="" lay-verify="pass" autocomplete="off" class="layui-input"></textarea>
+                    <!--<input type="text" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5，。]/g,'')" th:name="FDesc" required="" lay-verify="pass" autocomplete="off" class="layui-input">
+
+            --></div>
+                </div>
             <!--<div class="layui-form-item">
                 <label class="layui-form-label">
                     <span class="x-red">*</span>评分</label>

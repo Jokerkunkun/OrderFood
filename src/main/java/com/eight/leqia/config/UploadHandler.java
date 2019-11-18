@@ -12,6 +12,6 @@ public class UploadHandler implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/upload/**").addResourceLocations("file:E:\\S3Down\\S3Project\\miniprogram-7\\miniprogram-7\\images\\goods\\");
+        registry.addResourceHandler("/upload/**").addResourceLocations("file:E:\\S3Down\\S3Project\\miniprogram-7\\images\\goods\\");
     }
 }

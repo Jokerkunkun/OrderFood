@@ -1,5 +1,6 @@
 package com.eight.leqia.service;
 
+
 import com.eight.leqia.entity.FoodOrder;
 import com.eight.leqia.mapper.OrderMapperT;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,31 @@ public class OrderServiceImplT implements OrderServiceT {
     @Override
     public int delOrderById(String OrderId) {
         return orderMapperT.delOrderById(OrderId);
+    }
+
+    @Override
+    public FoodOrder selFirstOrder(int CId) {
+        return orderMapperT.selFirstOrder(CId);
+    }
+
+    @Override
+    public int upOrderStatus(FoodOrder order) {
+        return orderMapperT.upOrderStatus(order);
+    }
+
+    @Override
+    public int upOrderStatusT(FoodOrder order) {
+        return orderMapperT.upOrderStatusT(order);
+    }
+
+    @Override
+    public int upOrderT(FoodOrder order) {
+        return orderMapperT.upOrderT(order);
+    }
+
+    @Override
+    public List<FoodOrder> selOrderT(FoodOrder order) {
+        return orderMapperT.selOrderT(order);
     }
 
 

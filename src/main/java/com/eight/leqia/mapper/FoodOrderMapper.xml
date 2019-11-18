@@ -25,9 +25,23 @@
     </select>
 
     <select id="findOrderIdAll" parameterType="String" resultType="FoodOrder">
-        select fd.foodorderid,fd.orderid,cu.userName,f.fname,f.fprice,fd.ordercomment,fd.orderTime,fd.PaymentTime,fd.orderstatus,fd.orderprice
-       from foodorder fd inner join Customer cu on fd.Cid=cu.cid inner join food f on fd.fid=f.fid
-        WHERE fd.orderid LIKE  concat('%',#{OrderId},'%')  ORDER BY fd.foodorderid DESC
+        select foodorderid,OrderId,seat,goodsNum,fo.CId,c.UserName,OrderPrice,OrderTime,PaymentTime,Ordercomment,OrderStatus,group_concat(concat(fo.FId)) FIds,group_concat(concat(f.fName)) fNames
+        from foodorder fo
+        join food f
+        on fo.FId = f.FId
+        join customer c
+        on c.CId = fo.CId
+        WHERE OrderId LIKE  concat('%',#{OrderId},'%') group by OrderId order by foodorderid  DESC
+    </select>
+
+    <select id="findOrderId" parameterType="String" resultType="FoodOrder">
+        select foodorderid,OrderId,seat,goodsNum,fo.CId,c.UserName,OrderPrice,OrderTime,PaymentTime,Ordercomment,OrderStatus,group_concat(concat(fo.FId)) FIds,group_concat(concat(f.fName)) fNames
+        from foodorder fo
+        join food f
+        on fo.FId = f.FId
+        join customer c
+        on c.CId = fo.CId
+        WHERE OrderId = #{OrderId} group by OrderId order by foodorderid  DESC
     </select>
 
     <select id="findCount" resultType="FoodOrder">

@@ -29,4 +29,24 @@ from foodorder group by OrderId   HAVING CId=#{CId}
         delete from foodorder where OrderId=#{OrderId}
     </delete>
 
+    <select id="selFirstOrder" parameterType="int" resultType="FoodOrder">
+        select OrderId,CId,OrderTime,OrderStatus,group_concat(concat(FId)) FIds
+    from foodorder group by OrderId   HAVING CId=#{CId}
+     order by OrderTime desc LIMIT 1
+    </select>
+
+    <update id="upOrderStatus" parameterType="FoodOrder">
+        update foodorder set  OrderStatus=1 where OrderId=#{OrderId} and CId=#{CId}
+    </update>
+
+    <update id="upOrderStatusT" parameterType="FoodOrder">
+        update foodorder set  OrderStatus=3 where OrderId=#{OrderId} and CId=#{CId}
+    </update>
+    <update id="upOrderT" parameterType="FoodOrder">
+        update foodorder set  OrderStatus=#{OrderStatus} where OrderId=#{OrderId} and CId=#{CId}
+    </update>
+    <select id="selOrderT" parameterType="FoodOrder" resultType="FoodOrder" >
+    select * from foodorder where OrderId=#{OrderId} and CId=#{CId}
+    </select>
+
 </mapper>

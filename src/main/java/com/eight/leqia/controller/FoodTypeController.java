@@ -35,7 +35,7 @@ public class FoodTypeController {
         if(currentPage==null){
             currentPage  = 1;
         }
-        PageHelper.startPage(currentPage,10);
+        PageHelper.startPage(currentPage,11);
         List<FoodType> foodTypes = foodTypeService.findall();
         PageInfo pageInfo = new PageInfo(foodTypes);
         model.addAttribute("pageInfo",pageInfo);
@@ -83,7 +83,7 @@ public class FoodTypeController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<FoodType> foodTypes = foodTypeService.findNameAll(FtName);
         PageInfo pageInfo = new  PageInfo(foodTypes);
 

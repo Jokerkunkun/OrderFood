@@ -59,12 +59,7 @@
                                     <cite>会员列表</cite></a>
                             </li>
                             <li>
-                                <a onclick="xadmin.add_tab('评价查询','')">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>评价查询</cite></a>
-                            </li>
-                            <li>
-                                <a onclick="xadmin.add_tab('充值记录','/recharge/findAll')">
+                                <a onclick="xadmin.add_tab('充值记录','/qt/findAllRecharge')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>充值记录</cite></a>
                             </li>
@@ -151,13 +146,25 @@
                                     <cite>订单列表</cite></a>
                             </li>
                             <li>
-                                <a onclick="xadmin.add_tab('订单设置','order-list.html')">
+                                <a onclick="xadmin.add_tab('订单评论','/qt/findAllEvaluate')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>订单评论</cite></a>
                             </li>
                         </ul>
                     </li>
-
+                    <li>
+                        <a href="javascript:;">
+                            <i class="iconfont left-nav-li" lay-tips="投诉意见">&#xe723;</i>
+                            <cite><b>投诉意见</b></cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a onclick="xadmin.add_tab('投诉查询','complaints.html')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>投诉查询</cite></a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="javascript:;">
                             <i class="iconfont left-nav-li" lay-tips="财务管理">&#xe702;</i>

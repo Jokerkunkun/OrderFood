@@ -135,7 +135,7 @@ public class AdminController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<Admin> admins = iAdminService.findAll();
         PageInfo pageInfo = new  PageInfo(admins);
 
@@ -156,7 +156,7 @@ public class AdminController {
         if(currentPage == null){
             currentPage =1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         if(AUserName != "" && registration1 == "" && registration2 == ""){
             List<Admin> admins = iAdminService.findNameAll(AUserName);
             PageInfo pageInfo = new  PageInfo(admins);

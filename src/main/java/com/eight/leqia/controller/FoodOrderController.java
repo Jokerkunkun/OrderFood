@@ -4,6 +4,7 @@ import com.eight.leqia.entity.FoodOrder;
 import com.eight.leqia.service.FoodOrderService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class FoodOrderController {
         if(currentPage==null){
             currentPage  = 1;
         }
-        PageHelper.startPage(currentPage,12);
+        PageHelper.startPage(currentPage,11);
         List<FoodOrder>foodOrders = foodOrderService.findAllOrder();
         PageInfo pageInfo = new PageInfo(foodOrders);
         model.addAttribute("pageInfo",pageInfo);
@@ -42,12 +43,23 @@ public class FoodOrderController {
         if(currentPage==null){
             currentPage  = 1;
         }
-        PageHelper.startPage(currentPage,8);
+        PageHelper.startPage(currentPage,11);
         List<FoodOrder>foodOrders = foodOrderService.findOrderIdAll(OrderId);
         PageInfo pageInfo = new PageInfo(foodOrders);
         model.addAttribute("pageInfo",pageInfo);
 
         return "qsb/foodOrderMgr";
+    }
+
+    @RequestMapping("findOrderId")
+    public String findOrderId(String OrderId,Model model){
+
+        String str = OrderId.substring(0,6);
+        List<FoodOrder>foodOrders = foodOrderService.findOrderId(str);
+
+        model.addAttribute("foodOrders",foodOrders);
+
+        return "orderdetails";
     }
 
     @RequestMapping("chart")
@@ -80,6 +92,8 @@ public class FoodOrderController {
 
         return "chart";
     }
+
+
 
 /*
     @RequestMapping("findOrder")
