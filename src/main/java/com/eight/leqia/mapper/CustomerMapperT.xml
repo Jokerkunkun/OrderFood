@@ -13,7 +13,7 @@
         SELECT * FROM customer WHERE CId=#{CId}
     </select>
     <update id="updateById" parameterType="Customer">
-        update customer set CSex=#{CSex},age=#{age},icardId=#{icardId},CMobile=#{CMobile} where CId=#{CId}
+        update customer set paymentcode=#{paymentcode},CSex=#{CSex},age=#{age},icardId=#{icardId},CMobile=#{CMobile} where CId=#{CId}
     </update>
     <update id="upbalance" parameterType="Customer">
         update customer set  balance=#{balance} where  CId=#{CId}

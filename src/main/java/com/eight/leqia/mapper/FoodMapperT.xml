@@ -7,11 +7,14 @@
     SELECT * from food where FStatu=1
 </select>
     <select id="selAllByFl" resultType="Foods">
-    select * from food where FtId=#{FtId}
+    select * from food where FtId=#{FtId} and FStatu=1
 </select>
     <select id="selFoodsById" resultType="FoodTypeVo"  parameterType="String">
     select * from food f join foodtype ft on f.FtId=ft.FtId join fdtaste fdt  on f.FdtId=fdt.FdtId where f.FStatu=1 and f.FId=#{goodsId}
 </select>
+    <select id="selAllByName" resultType="Foods" parameterType="String">
+select * from food where FName like  CONCAT(CONCAT('%', #{name}), '%');
+    </select>
 
 
 

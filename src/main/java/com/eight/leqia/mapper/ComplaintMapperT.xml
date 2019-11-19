@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eight.leqia.mapper.ComplaintMapperT">
+  <insert id="addComplaint" parameterType="Complaint">
+      insert into complaint(cpContent,AdId,cId)values(#{cpContent},#{AdId},#{cId})
+  </insert>
+
+    <select id="findAllComplaint" resultType="Complaint">
+        select cl.cpId,cl.cpContent,a.AUserName,c.UserName
+        from complaint cl
+        join admin a on cl.AdId = a.AdId
+        join customer c on cl.cId = c.CId
+    </select>
+
+    <select id="findAllComplaintID" parameterType="String" resultType="Complaint">
+        select cl.cpId,cl.cpContent,a.AUserName,c.UserName
+        from complaint cl
+        join admin a on cl.AdId = a.AdId
+        join customer c on cl.cId = c.CId
+        WHERE c.UserName LIKE  concat('%',#{UserName},'%') ORDER BY cl.cpId DESC
+    </select>
+
+</mapper>

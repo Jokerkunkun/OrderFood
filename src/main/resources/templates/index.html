@@ -159,7 +159,7 @@
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('投诉查询','complaints.html')">
+                                <a onclick="xadmin.add_tab('投诉查询','/qt/findAllComplaint')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>投诉查询</cite></a>
                             </li>
@@ -189,7 +189,9 @@
             <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
                 <ul class="layui-tab-title">
                     <li class="home">
-                        <i class="layui-icon">&#xe68e;</i>我的桌面</li></ul>
+                        <i class="layui-icon">&#xe68e;</i>我的桌面</li>
+                </ul>
+
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
                         <iframe th:src='@{/admin/welcome}' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
@@ -200,6 +202,7 @@
         </div>
         <div class="page-content-bg"></div>
         <style id="theme_style"></style>
+
         <!-- 右侧主体结束 -->
         <!-- 中部结束 -->
         <script>//百度统计可去掉

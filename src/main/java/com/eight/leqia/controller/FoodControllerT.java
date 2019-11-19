@@ -1,6 +1,7 @@
 package com.eight.leqia.controller;
 
 import com.eight.leqia.entity.FoodTypeVo;
+import com.eight.leqia.entity.Foods;
 import com.eight.leqia.service.FoodServiceT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,13 @@ public class FoodControllerT {
     public FoodTypeVo selById(String goodsId){
 
         return foodService.selFoodsById(goodsId);
+    }
+
+    @ResponseBody
+    @RequestMapping("selByName")
+    public List<Foods> selByName(String name){
+
+        return foodService.selAllByName(name);
     }
 
 }

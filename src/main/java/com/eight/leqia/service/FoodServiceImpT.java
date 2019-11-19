@@ -29,4 +29,9 @@ public class FoodServiceImpT implements FoodServiceT {
     public FoodTypeVo selFoodsById(String goodsId) {
         return foodMapperT.selFoodsById(goodsId);
     }
+
+    @Override
+    public List<Foods> selAllByName(String name) {
+        return foodMapperT.selAllByName(name);
+    }
 }

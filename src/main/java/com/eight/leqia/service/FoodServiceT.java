@@ -13,4 +13,6 @@ public interface FoodServiceT {
     List<Foods> selAllByFl(int FtId);
     //根据商品id查询商品
     FoodTypeVo selFoodsById(String goodsId);
+    //根据商品名字模糊查询
+    List<Foods> selAllByName(String   name);
 }

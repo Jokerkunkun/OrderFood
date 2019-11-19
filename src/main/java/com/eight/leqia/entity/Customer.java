@@ -22,6 +22,15 @@ public class Customer {
     private Integer deleteStatus;
     private String openid;
     private Integer age;
+    private String paymentcode;
+
+    public String getPaymentcode() {
+        return paymentcode;
+    }
+
+    public void setPaymentcode(String paymentcode) {
+        this.paymentcode = paymentcode;
+    }
 
     public String getOpenid() {
         return openid;
