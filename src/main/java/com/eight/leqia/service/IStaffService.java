@@ -1,5 +1,6 @@
 package com.eight.leqia.service;
 
+import com.eight.leqia.entity.Admin;
 import com.eight.leqia.entity.Staff;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public interface IStaffService {
     int updateStatusForbidden(int AdId);
 
     int updateStatusStart(int AdId);
+
+    Staff SelAdmin(String AUserName);
 
     /**
      * 根据name查询

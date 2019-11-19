@@ -135,8 +135,15 @@ public class FoodController {
             e.printStackTrace();
         }
         food.setFUrl(filename);
-        foodService.add(food);
-        return "redirect:findall";
+
+        Food food1 = foodService.findbyname(food.getFName());
+
+        if(food1 == null){
+            foodService.add(food);
+            return "redirect:findall";
+        }else{
+            return "redirect:findall";
+        }
     }
 
     /**

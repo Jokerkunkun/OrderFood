@@ -8,6 +8,10 @@
        select FdtId,FdtName from FdTaste where deleteStatus = 1 ORDER BY FdtId DESC
     </select>
 
+    <select id="findbyname" resultType="FdTaste" parameterType="String">
+          select * from FdTaste where FdtName = #{FdtName}
+       </select>
+
     <select id="findCount" resultType="FdTaste">
        select count(*) Count from FdTaste;
     </select>

@@ -1,5 +1,6 @@
 package com.eight.leqia.mapper;
 
+import com.eight.leqia.entity.Admin;
 import com.eight.leqia.entity.Staff;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -20,6 +21,8 @@ public interface StaffMapper {
     int updateStatusForbidden(int AdId);
 
     int updateStatusStart(int AdId);
+
+    Staff SelAdmin(String AUserName);
 
     /**
      * 根据name查询

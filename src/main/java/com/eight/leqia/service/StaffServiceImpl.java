@@ -1,5 +1,6 @@
 package com.eight.leqia.service;
 
+import com.eight.leqia.entity.Admin;
 import com.eight.leqia.entity.Staff;
 import com.eight.leqia.mapper.StaffMapper;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,11 @@ public class StaffServiceImpl implements IStaffService {
     @Override
     public int updateStatusStart(int AdId) {
         return staffMapper.updateStatusStart(AdId);
+    }
+
+    @Override
+    public Staff SelAdmin(String AUserName) {
+        return staffMapper.SelAdmin(AUserName);
     }
 
     @Override

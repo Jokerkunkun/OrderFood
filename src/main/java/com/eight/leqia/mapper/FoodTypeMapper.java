@@ -22,6 +22,8 @@ public interface FoodTypeMapper {
      */
     List<FoodType> findNameAll(String FtName);
 
+    FoodType findbyname(String FtName);
+
     /**
      * 查询需要修改的分类
      * @param FtId

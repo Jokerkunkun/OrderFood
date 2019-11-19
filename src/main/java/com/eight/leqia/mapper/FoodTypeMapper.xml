@@ -8,6 +8,10 @@
        select FtId,FtName from foodtype ORDER BY FtId DESC
     </select>
 
+    <select id="findbyname" resultType="FoodType" parameterType="String">
+        select * from FoodType where FtName = #{FtName}
+    </select>
+
     <select id="findFtId">
         select FtId from foodtype where FtId = #{FtId}
     </select>

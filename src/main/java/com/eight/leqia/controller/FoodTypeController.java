@@ -57,18 +57,16 @@ public class FoodTypeController {
      * @return
      */
     @RequestMapping("add")
-    public String add(FoodType foodType/*,Model model*/){
-        /*String msg = "该分类已经存在!";
-        FoodType foodType1 = foodTypeService.findSole(foodType.getFtName());
-        if(foodType1.getFtName() == ""){
+    public String add(FoodType foodType){
+
+        FoodType foodType1 = foodTypeService.findbyname(foodType.getFtName());
+
+        if(foodType1 == null){
             foodTypeService.add(foodType);
             return "redirect:findAll";
         }else{
-            model.addAttribute("msg",msg);
             return "redirect:findAll";
-        }*/
-        foodTypeService.add(foodType);
-        return "redirect:findAll";
+        }
     }
 
     /**

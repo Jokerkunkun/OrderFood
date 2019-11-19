@@ -1,6 +1,7 @@
 package com.eight.leqia.controller;
 
 import com.eight.leqia.entity.FdTaste;
+import com.eight.leqia.mapper.FdTasteMapper;
 import com.eight.leqia.service.IFdTasteService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -61,8 +62,16 @@ public class FdTasteController {
 
     @RequestMapping("addFd")
     public String addFd(FdTaste fdTaste) {
-        iFdTasteService.addFdTaste(fdTaste);
-        return "redirect:findAllFd";
+
+        FdTaste fdTaste1 = iFdTasteService.findbyname(fdTaste.getFdtName());
+
+        if(fdTaste1 == null){
+            iFdTasteService.addFdTaste(fdTaste);
+            return "redirect:findAllFd";
+        }else{
+            return "redirect:findAllFd";
+        }
+
     }
 
     @RequestMapping("update")

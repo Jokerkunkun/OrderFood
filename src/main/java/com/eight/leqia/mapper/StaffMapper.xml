@@ -10,6 +10,10 @@
         where ALevel = 0 ORDER BY adid DESC
     </select>
 
+    <select id="SelAdmin" resultType="Staff" parameterType="String">
+       select * from admin where ALevel = 0 and AUserName = #{AUserName};
+    </select>
+
     <select id="findCount" resultType="Staff">
         select count(*) Count from Admin where ALevel = 0;
     </select>

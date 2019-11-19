@@ -21,6 +21,11 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
+    public Food findbyname(String FName) {
+        return foodMapper.findbyname(FName);
+    }
+
+    @Override
     public Food findbyid(Integer fid) {
         return foodMapper.findbyid(fid);
     }

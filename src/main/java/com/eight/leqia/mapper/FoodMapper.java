@@ -17,6 +17,8 @@ public interface FoodMapper {
      */
     List<Food> findall();
 
+    Food findbyname(String FName);
+
     /**
      * 根据菜的id查询单个
      * @param fid

@@ -11,6 +11,8 @@ public interface IFdTasteService {
      */
     List<FdTaste> findAll();
 
+    FdTaste findbyname(String FdtName);
+
     /**
      * 模糊查询口味
      * @param FdtName

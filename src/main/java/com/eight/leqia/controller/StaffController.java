@@ -47,8 +47,16 @@ public class StaffController {
      */
     @RequestMapping("add")
     public String add(Staff staff){
-        iStaffService.add(staff);
-        return "redirect:findAll";
+
+        Staff staff1 = iStaffService.SelAdmin(staff.getAUserName());
+
+        if(staff1 == null){
+            iStaffService.add(staff);
+            return "redirect:findAll";
+        }else{
+            return "redirect:findAll";
+        }
+
     }
 
     /**

@@ -21,6 +21,11 @@ public class FdTasteServiceImpl implements IFdTasteService{
     }
 
     @Override
+    public FdTaste findbyname(String FdtName) {
+        return fdTasteMapper.findbyname(FdtName);
+    }
+
+    @Override
     public List<FdTaste> findNameAll(String FdtName) {
         return fdTasteMapper.findNameAll(FdtName);
     }

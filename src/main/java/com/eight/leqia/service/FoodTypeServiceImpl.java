@@ -33,6 +33,11 @@ public class FoodTypeServiceImpl implements FoodTypeService {
         return foodTypeMapper.updateFind(FtId);
     }
 
+    @Override
+    public FoodType findbyname(String FtName) {
+        return foodTypeMapper.findbyname(FtName);
+    }
+
     /**
      * 模糊查询分类
      * @param FtName

@@ -17,6 +17,8 @@ public interface AdminMapper {
      */
     Admin login(String AUserName,String APassword);
 
+    Admin SelAdmin(String AUserName);
+
     /**
      * 查询所有管理员
      * @return

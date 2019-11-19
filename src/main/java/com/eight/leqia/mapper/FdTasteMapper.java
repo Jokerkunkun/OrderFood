@@ -15,6 +15,13 @@ public interface FdTasteMapper {
     List<FdTaste> findAll();
 
     /**
+     * 唯一查询
+     * @param FdtName
+     * @return
+     */
+    FdTaste findbyname(String FdtName);
+
+    /**
      * 模糊查询口味
      * @param FdtName
      * @return

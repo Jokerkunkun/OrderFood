@@ -19,6 +19,8 @@ public interface FoodTypeService {
      */
     FoodType updateFind(Integer FtId);
 
+    FoodType findbyname(String FtName);
+
     /**
      * 模糊查询分类
      * @param FtName
