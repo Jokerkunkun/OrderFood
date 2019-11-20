@@ -44,7 +44,7 @@
                     <table class="layui-table layui-form">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <!--<th>ID</th>-->
                             <th>投诉内容</th>
                             <th>被投诉人</th>
                             <th>投诉用户</th>
@@ -53,7 +53,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="cpt:${pageInfo.list}">
-                            <td th:text="${cpt.cpId}">ID</td>
+                            <!--<td th:text="${cpt.cpId}">ID</td>-->
                             <td th:text="${cpt.cpContent}">投诉内容</td>
                             <td th:text="${cpt.AUserName}">被投诉人</td>
                             <td th:text="${cpt.UserName}">投诉用户</td>

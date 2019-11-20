@@ -11,10 +11,10 @@
         select cl.cpId,cl.cpContent,a.AUserName,c.UserName
         from complaint cl
         join admin a on cl.AdId = a.AdId
-        join customer c on cl.cId = c.CId
+        join customer c on cl.cId = c.CId ORDER BY cl.cpId DESC
     </select>
 
-    <select id="findAllComplaintID" parameterType="String" resultType="Complaint">
+    <select id="ID" parameterType="String" resultType="Complaint">
         select cl.cpId,cl.cpContent,a.AUserName,c.UserName
         from complaint cl
         join admin a on cl.AdId = a.AdId

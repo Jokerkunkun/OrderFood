@@ -38,7 +38,7 @@
                             <input class="layui-input"  autocomplete="off" placeholder="截止日" name="registration2" id="end">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input type="text" name="UserName"  placeholder="请输入ID" autocomplete="off" class="layui-input">
+                            <input type="text" name="UserName"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
@@ -54,7 +54,7 @@
                             <th>用户名</th>
                             <th>性别</th>
                             <th>年龄</th>
-                            <th>生日</th>
+                            <!--<th>生日</th>-->
                             <th>身份证</th>
                             <!--<th>会员等级</th>-->
                             <th>余额</th>
@@ -70,7 +70,7 @@
                             <td th:text="${c.UserName}"></td>
                             <td th:text="${c.CSex==null?'未完善':c.CSex}"></td>
                             <td th:text="${c.age==null?'未完善':c.age}"></td>
-                            <td th:text="${#dates.format(c.birthday,'yyyy-MM-dd hh:mm:ss')==null?'未完善':#dates.format(c.birthday,'yyyy-MM-dd hh:mm:ss')}">生日</td>
+                            <!--<td th:text="${#dates.format(c.birthday,'yyyy-MM-dd hh:mm:ss')==null?'未完善':#dates.format(c.birthday,'yyyy-MM-dd hh:mm:ss')}">生日</td>-->
                             <td th:text="${c.icardId==null?'未完善':c.icardId}"></td>
                             <!--<td th:text="${c.viplevel==0?'一级会员':'二级会员'}"></td>-->
                             <td th:text="${c.balance}"></td>

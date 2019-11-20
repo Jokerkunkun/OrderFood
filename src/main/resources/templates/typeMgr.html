@@ -32,7 +32,7 @@
                 <div class="layui-card-body "  style="margin-bottom: -24px;">
                     <form class="layui-form layui-col-space5" th:action="@{/foodtype/findNameAll}" th:method="post">
                         <div class="layui-inline layui-show-xs-block">
-                            <input type="text" name="FtName"  placeholder="请输入分类名" autocomplete="off" class="layui-input">
+                            <input type="text" name="FtName"  placeholder="请输入分类" autocomplete="off" class="layui-input">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
                             <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
@@ -44,13 +44,13 @@
                     <table class="layui-table layui-form">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <!--<th>ID</th>-->
                             <th>名称</th>
                             <th>操作</th></tr>
                         </thead>
                         <tbody>
                         <tr th:each="ft:${pageInfo.list}">
-                            <td th:text="${ft.FtId}">ID</td>
+                            <!--<td th:text="${ft.FtId}">ID</td>-->
                             <td th:text="${ft.FtName}">分类</td>
                             <td class="td-manage">
                                 <a th:onclick="'javascript:xadmin.open(\'编辑\',\'/foodtype/updateFind\',\'?FtId=\',\''+${ft.FtId}+'\',500,230)'"  title="编辑"  href="javascript:;">
