@@ -26,12 +26,6 @@ public class ComplaintController {
         return complaintService.addComplaint(complaint);
     }
 
-    /**
-     * 查询所有用户
-     * @param currentPage
-     * @param model
-     * @return
-     */
     @RequestMapping("findAllComplaint")
     public String findAllComplaint(Integer currentPage, Model model){
         if(currentPage == null){
