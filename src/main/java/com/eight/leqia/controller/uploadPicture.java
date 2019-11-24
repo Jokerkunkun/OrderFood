@@ -29,7 +29,7 @@ public class uploadPicture {
 
 
         //realPath填写电脑文件夹路径
-        String realPath = "E:\\S3Down\\S3Project\\miniprogram-7\\images\\comment";
+        String realPath = "E:\\old\\S3Down\\S3Project\\miniprogram-7\\images\\comment";
 
         //格式化时间戳
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
